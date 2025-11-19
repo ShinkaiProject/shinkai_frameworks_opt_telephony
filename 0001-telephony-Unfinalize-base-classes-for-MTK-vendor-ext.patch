@@ -1,0 +1,111 @@
+From 59428ceb307d5344decf03fe6335a8aa3e2f2646 Mon Sep 17 00:00:00 2001
+From: kylieeXD <khayloaftck@gmail.com>
+Date: Thu, 2 Jul 2026 02:59:55 +0000
+Subject: [PATCH] telephony: Unfinalize base classes for MTK vendor extensions
+
+Change-Id: Id26bd961f410d87950d2ce883480a464c4cceafe
+Signed-off-by: kylieeXD <khayloaftck@gmail.com>
+---
+ src/java/com/android/internal/telephony/gsm/GsmMmiCode.java     | 2 +-
+ .../com/android/internal/telephony/gsm/GsmSMSDispatcher.java    | 2 +-
+ .../android/internal/telephony/imsphone/ImsPhoneMmiCode.java    | 2 +-
+ .../com/android/internal/telephony/uicc/CsimFileHandler.java    | 2 +-
+ .../com/android/internal/telephony/uicc/RuimFileHandler.java    | 2 +-
+ .../com/android/internal/telephony/uicc/SIMFileHandler.java     | 2 +-
+ .../com/android/internal/telephony/uicc/UsimFileHandler.java    | 2 +-
+ 7 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/src/java/com/android/internal/telephony/gsm/GsmMmiCode.java b/src/java/com/android/internal/telephony/gsm/GsmMmiCode.java
+index 39e3994..801a346 100644
+--- a/src/java/com/android/internal/telephony/gsm/GsmMmiCode.java
++++ b/src/java/com/android/internal/telephony/gsm/GsmMmiCode.java
+@@ -75,7 +75,7 @@ import java.util.regex.Pattern;
+  * @hide
+  *
+  */
+-public final class GsmMmiCode extends Handler implements MmiCode {
++public class GsmMmiCode extends Handler implements MmiCode {
+     static final String LOG_TAG = "GsmMmiCode";
+ 
+     //***** Constants
+diff --git a/src/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java b/src/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java
+index 3c4b511..0b18d52 100644
+--- a/src/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java
++++ b/src/java/com/android/internal/telephony/gsm/GsmSMSDispatcher.java
+@@ -46,7 +46,7 @@ import com.android.telephony.Rlog;
+ import java.util.HashMap;
+ import java.util.concurrent.atomic.AtomicReference;
+ 
+-public final class GsmSMSDispatcher extends SMSDispatcher {
++public class GsmSMSDispatcher extends SMSDispatcher {
+     private static final String TAG = "GsmSMSDispatcher";
+     protected UiccController mUiccController = null;
+     private AtomicReference<IccRecords> mIccRecords = new AtomicReference<IccRecords>();
+diff --git a/src/java/com/android/internal/telephony/imsphone/ImsPhoneMmiCode.java b/src/java/com/android/internal/telephony/imsphone/ImsPhoneMmiCode.java
+index 6dcbcfa..a1cac7e 100644
+--- a/src/java/com/android/internal/telephony/imsphone/ImsPhoneMmiCode.java
++++ b/src/java/com/android/internal/telephony/imsphone/ImsPhoneMmiCode.java
+@@ -82,7 +82,7 @@ import java.util.regex.Pattern;
+  * @hide
+  *
+  */
+-public final class ImsPhoneMmiCode extends Handler implements MmiCode {
++public class ImsPhoneMmiCode extends Handler implements MmiCode {
+     static final String LOG_TAG = "ImsPhoneMmiCode";
+ 
+     //***** Constants
+diff --git a/src/java/com/android/internal/telephony/uicc/CsimFileHandler.java b/src/java/com/android/internal/telephony/uicc/CsimFileHandler.java
+index e86f4e7..d27185d 100644
+--- a/src/java/com/android/internal/telephony/uicc/CsimFileHandler.java
++++ b/src/java/com/android/internal/telephony/uicc/CsimFileHandler.java
+@@ -23,7 +23,7 @@ import com.android.telephony.Rlog;
+  * @hide
+  * This class should be used to access files in CSIM ADF
+  */
+-public final class CsimFileHandler extends IccFileHandler implements IccConstants {
++public class CsimFileHandler extends IccFileHandler implements IccConstants {
+     static final String LOG_TAG = "CsimFH";
+ 
+     public CsimFileHandler(UiccCardApplication app, String aid, CommandsInterface ci) {
+diff --git a/src/java/com/android/internal/telephony/uicc/RuimFileHandler.java b/src/java/com/android/internal/telephony/uicc/RuimFileHandler.java
+index 37d7702..f8c667c 100644
+--- a/src/java/com/android/internal/telephony/uicc/RuimFileHandler.java
++++ b/src/java/com/android/internal/telephony/uicc/RuimFileHandler.java
+@@ -24,7 +24,7 @@ import com.android.telephony.Rlog;
+ /**
+  * @hide
+  */
+-public final class RuimFileHandler extends IccFileHandler {
++public class RuimFileHandler extends IccFileHandler {
+     static final String LOG_TAG = "RuimFH";
+ 
+     //***** Instance Variables
+diff --git a/src/java/com/android/internal/telephony/uicc/SIMFileHandler.java b/src/java/com/android/internal/telephony/uicc/SIMFileHandler.java
+index 9cd90e1..f00fd93 100644
+--- a/src/java/com/android/internal/telephony/uicc/SIMFileHandler.java
++++ b/src/java/com/android/internal/telephony/uicc/SIMFileHandler.java
+@@ -22,7 +22,7 @@ import com.android.telephony.Rlog;
+ /**
+  * @hide
+  */
+-public final class SIMFileHandler extends IccFileHandler implements IccConstants {
++public class SIMFileHandler extends IccFileHandler implements IccConstants {
+     static final String LOG_TAG = "SIMFileHandler";
+ 
+     //***** Instance Variables
+diff --git a/src/java/com/android/internal/telephony/uicc/UsimFileHandler.java b/src/java/com/android/internal/telephony/uicc/UsimFileHandler.java
+index 27093e1..7b2aca2 100644
+--- a/src/java/com/android/internal/telephony/uicc/UsimFileHandler.java
++++ b/src/java/com/android/internal/telephony/uicc/UsimFileHandler.java
+@@ -23,7 +23,7 @@ import com.android.telephony.Rlog;
+  * @hide
+  * This class should be used to access files in USIM ADF
+  */
+-public final class UsimFileHandler extends IccFileHandler implements IccConstants {
++public class UsimFileHandler extends IccFileHandler implements IccConstants {
+     static final String LOG_TAG = "UsimFH";
+ 
+     public UsimFileHandler(UiccCardApplication app, String aid, CommandsInterface ci) {
+-- 
+2.43.0
+
